@@ -1,0 +1,23 @@
+import tweepy
+
+def post_to_twitter():
+    # Masukkan kredensial API Twitter Anda
+    consumer_key = "your_consumer_key"
+    consumer_secret = "your_consumer_secret"
+    access_token = "your_access_token"
+    access_token_secret = "your_access_token_secret"
+
+    # Autentikasi dengan Twitter API
+    auth = tweepy.OAuth1UserHandler(consumer_key, consumer_secret, access_token, access_token_secret)
+    api = tweepy.API(auth)
+
+    try:
+        # Mengirim tweet
+        tweet = "Promo Spesial: Dapatkan diskon 50% di toko kami!"
+        api.update_status(tweet)
+        print("Tweet berhasil diposting!")
+    except Exception as e:
+        print(f"Error: {e}")
+
+# Contoh penggunaan
+post_to_twitter()
